@@ -22,6 +22,13 @@ if len(cars):
         if car_attributes:
             for attr in car_attributes:
                 print [ attribute for attribute in attr if attribute][0].strip()
-        
-
+        #get color entity if it exists
+        color_entity = re.search(regex.color_entity_regex, car_entity).group(1)# get color tag if it exists
+        if color_entity:
+            print color_entity
+            color_attributes = re.findall(regex.color_attributes_regex, color_entity)# extract attributes from opening tag
+            if color_attributes:
+                for attr in color_attributes:
+                    print [ attribute for attribute in attr if attribute][0].strip()
+            
 
